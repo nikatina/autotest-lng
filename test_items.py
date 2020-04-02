@@ -1,5 +1,4 @@
 from selenium import common
-from selenium import webdriver
 
 
 def check_exists_by_css(browser, css_sel):
