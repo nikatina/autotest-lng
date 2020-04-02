@@ -1,5 +1,17 @@
+from selenium import common
+from selenium import webdriver
+
+
+def check_exists_by_css(browser, css_sel):
+    try:
+        browser.find_element_by_css_selector(css_sel)
+    except common.exceptions.NoSuchElementException:
+        return False
+    return True
+
+
 def test_adding_button(browser):
     link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
     browser.get(link)
-    adding_btn = browser.find_element_by_css_selector(".btn-add-to-baskett")
-    assert adding_btn.text, f"Add to basket button is not exist"
+    is_elem_exist = check_exists_by_css(browser, ".btn-add-to-basket")
+    assert is_elem_exist is True, "'Add to basket' button is not exist"
