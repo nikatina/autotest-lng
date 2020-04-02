@@ -9,7 +9,7 @@ def check_exists_by_css(browser, css_sel):
     return True
 
 
-def test_adding_button(browser):
+def test_adding_button_exist(browser):
     link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
     browser.get(link)
     is_elem_exist = check_exists_by_css(browser, ".btn-add-to-basket")
